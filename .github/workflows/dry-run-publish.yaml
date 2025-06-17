@@ -39,4 +39,4 @@ jobs:
           echo "::endgroup::"
           
       - name: Dry-run publish test
-        run: pnpm -r publish --dry-run --no-git-checks
+        run: pnpm -r publish --dry-run
