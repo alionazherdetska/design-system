@@ -4,6 +4,7 @@ on:
     branches:
       - changeset-release/main
       - changeset-release/release/v*
+  workflow_dispatch:  # This adds the manual trigger button
 
 permissions:
   contents: read
@@ -15,13 +16,13 @@ jobs:
     steps:
       - name: Checkout branch
         uses: actions/checkout@09d2acae674a48949e3602304ab46fd20ae0c42f
-
+        
       - name: Setup Node & pnpm
         uses: ./.github/actions/setup-pnpm
-       
+        
       - name: Install & Build Dependencies
         run: pnpm bootstrap
-       
+        
       - name: Debug - Check what files changed
         run: |
           echo "::group::Git Status"
@@ -36,6 +37,6 @@ jobs:
           echo "::group::Detailed Changes"
           git status --porcelain || true
           echo "::endgroup::"
-       
+          
       - name: Dry-run publish test
         run: pnpm -r publish --dry-run --no-git-checks
