@@ -60,7 +60,7 @@ header,
   z-index: 2; // local header should slide bellow the global header
   position: sticky;
   inset-block-start: var(--post-global-header-top);
-  background-color: #ffcc00;
+  background-color: #1f0aff;
 
   .section {
     height: var(--post-global-header-expanded-height);
